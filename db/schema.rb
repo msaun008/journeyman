@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531123000) do
+ActiveRecord::Schema.define(version: 20170612223613) do
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_date"
+    t.integer "duration"
+    t.string "location"
+    t.string "station"
+    t.integer "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["season_id"], name: "index_events_on_season_id"
+  end
 
   create_table "seasons", force: :cascade do |t|
     t.string "name"
