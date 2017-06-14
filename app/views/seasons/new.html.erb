@@ -7,6 +7,35 @@
   </div>
 
   <div>
+    <p>Events</p>
+
+    <div>
+      <%= f.fields_for :events do |ff| %>
+        <div>
+          <%= ff.label :start_date %>
+          <%= ff.date_select :start_date %>
+        </div>
+
+        <div>
+          <%= ff.label :duration %>
+          <%= ff.number_field :duration %>
+        </div>
+
+        <div>
+          <%= ff.label :location %>
+          <%= ff.text_field :location %>
+        </div>
+
+        <div>
+          <%= ff.label :station %>
+          <%= ff.text_field :station %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div>
     <%= f.submit "Create" %>
   </div>
 <% end %>

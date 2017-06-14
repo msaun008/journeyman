@@ -11,6 +11,7 @@ class SeasonsController < ApplicationController
 
   def new
     @season = Season.new
+    @season.events.build
   end
 
   def create
@@ -44,7 +45,7 @@ class SeasonsController < ApplicationController
 
   private
     def season_params
-      params.require(:season).permit(:name)
+      params.require(:season).permit(:name, events_attributes: [:start_date, :duration, :location, :station])
     end
 
     def find_season
