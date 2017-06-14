@@ -1,0 +1,12 @@
+<h1>Edit Season</h1>
+
+<%= form_for(@season) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
