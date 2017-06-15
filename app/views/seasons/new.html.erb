@@ -1,41 +1,49 @@
 <h1>New Season</h1>
 
-<%= form_for(@season) do |f| %>
-  <div>
-    <p>Name: </p>
-    <%= f.text_field :name %>
-  </div>
-
-  <div>
-    <p>Events</p>
-
-    <div>
-      <%= f.fields_for :events do |ff| %>
-        <div>
-          <%= ff.label :start_date %>
-          <%= ff.date_select :start_date %>
-        </div>
-
-        <div>
-          <%= ff.label :duration %>
-          <%= ff.number_field :duration %>
-        </div>
-
-        <div>
-          <%= ff.label :location %>
-          <%= ff.text_field :location %>
-        </div>
-
-        <div>
-          <%= ff.label :station %>
-          <%= ff.text_field :station %>
-        </div>
-
-      <% end %>
+<%= form_for @season, html: { class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.text_field :name, class: "form-control", placeholder: "Season Name" %>
     </div>
   </div>
 
-  <div>
-    <%= f.submit "Create" %>
+  <div class="form-group">
+    <%= f.label :events, class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <%= f.fields_for :events do |ff| %>
+            <div class="form-group row">
+              <div class="col-md-3">
+                <%= ff.text_field :start_date, class: "form-control datepicker", data: { provide:'datepicker' },
+                  placeholder: "Start Date"%>
+              </div>
+
+              <div class="col-md-2">
+                <%= ff.number_field :duration, class: "form-control", placeholder: "Duration" %>
+              </div>
+
+              <div class="col-md-3">
+                <%= ff.text_field :location, class: "form-control", placeholder: "Location" %>
+              </div>
+
+              <div class="col-md-2">
+                <%= ff.text_field :station, class: "form-control", placeholder: "Station" %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <%= f.submit "Create", class: "btn btn-primary" %>
+    </div>
+  </div>
+
 <% end %>
