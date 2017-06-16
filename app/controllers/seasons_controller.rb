@@ -10,8 +10,8 @@ class SeasonsController < ApplicationController
   end
 
   def new
-    @season = Season.new
-    2.times{ @season.events.build }
+    @season = Season.first
+    # 2.times{ @season.events.build }
   end
 
   def create
@@ -28,6 +28,7 @@ class SeasonsController < ApplicationController
   end
 
   def update
+    byebug
     if @season.update(season_params)
       redirect_to @season
     else
@@ -45,7 +46,7 @@ class SeasonsController < ApplicationController
 
   private
     def season_params
-      params.require(:season).permit(:name, events_attributes: [:start_date, :duration, :location, :station])
+      params.require(:season).permit(:name, events_attributes: [:id, :start_date, :duration, :location, :station, :_destroy])
     end
 
     def find_season

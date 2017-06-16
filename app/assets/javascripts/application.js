@@ -23,3 +23,21 @@ $(document).ready(function(){
     format: 'yyyy-mm-dd'
   });
 });
+
+function find_ancestor_with_class(elem, classname) {
+  while( !elem.classList.contains(classname) ){
+    elem = elem.parentElement;
+  };
+  return elem;
+}
+
+function remove_fields(link) {
+  var elem          = find_ancestor_with_class(link, 'fields');
+  var inputs        = elem.getElementsByTagName('input');
+  var destroy_field = elem.querySelector('.hidden-destroy');
+
+  if( destroy_field ) {
+    destroy_field.value = "1";
+  }
+  elem.style.display = 'none';
+}
