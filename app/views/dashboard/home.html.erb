@@ -1,3 +1,27 @@
 <h1>Dashboard</h1>
 
 <%= link_to "Seasons", seasons_path %>
+
+<% @seasons.each do |season| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= link_to season.name, seasons_path(season) %>
+    </div>
+
+    <div class="panel-body">
+      <div class="row">
+        <% season.events.each do |event| %>
+          <div class="col-md-3">
+            <%= link_to(event) do %>
+              <div class="thumbnail">
+                <%= event.station %><br>
+                <%= event.location %><br>
+                <%= event.start_date %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

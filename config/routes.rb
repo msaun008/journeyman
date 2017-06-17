@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'dashboard#home'
 
   resources :seasons
+  resources :events
 end
