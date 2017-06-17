@@ -1,1 +1,34 @@
-<p><%= @season.name %></p>
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= @season.name %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <table class="table">
+    <tr>
+      <th>Station</th>
+      <th>Location</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+
+    <% @season.events.each do |event| %>
+      <tr>
+        <td><%= event.station %></td>
+        <td><%= event.location %></td>
+        <td><%= event.start_date %></td>
+        <td><%= event.start_date %></td>
+        <td>Completed</td>
+        <td>
+          <button class="btn btn-default btn-xs">View</button>
+          <button class="btn btn-default btn-xs">Edit</button>
+          <button class="btn btn-default btn-xs">Delete</button>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+</div>

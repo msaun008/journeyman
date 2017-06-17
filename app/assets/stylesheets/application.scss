@@ -1,2 +1,15 @@
 // @import "bootstrap";
 @import "bootstrap-datepicker3";
+
+a.undecorrated-link {
+  color: black;
+  text-decoration: none;
+}
+
+a.undecorrated-link:hover {
+  text-decoration: none;
+}
+
+.panel-heading-text {
+  margin: 5px 0px;
+}
