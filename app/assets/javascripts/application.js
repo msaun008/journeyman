@@ -16,6 +16,7 @@
 //= require bootstrap-datepicker
 //= require_tree .
 
+// Configure the datepicker
 $(document).ready(function(){
   $('.datepicker').datepicker({
     todayHighlight: true,
@@ -32,12 +33,49 @@ function find_ancestor_with_class(elem, classname) {
 }
 
 function remove_fields(link) {
+  // grab the hidden field for :_destroy
   var elem          = find_ancestor_with_class(link, 'fields');
-  var inputs        = elem.getElementsByTagName('input');
   var destroy_field = elem.querySelector('.hidden-destroy');
 
+  // set destroy to true for the backend
   if( destroy_field ) {
     destroy_field.value = "1";
   }
+
+  // hide the element until the user saves the changes
   elem.style.display = 'none';
+}
+
+function add_fields(link) {
+  console.log('add fields');
+
+  // get the last row already
+  var parentElem          = find_ancestor_with_class(link, 'fields-container');
+  var rows                = parentElem.querySelectorAll('.fields');
+  var numRows             = rows.length;
+  var lastRow             = rows[numRows - 1];
+
+  // create a new row
+  var newRow              = lastRow.cloneNode(true);
+  var fields              = newRow.getElementsByTagName('input');
+
+  // update the field names to use a unique index
+  for (var i = 0; i < fields.length; i++) {
+    var field         = fields[i];
+    var nameTokens    = field.name.split('][');
+
+    if (nameTokens.length > 1) {
+      var tokenIndex            = nameTokens.length - 2;
+      nameTokens[tokenIndex]    = Date.now();
+      field.name                = nameTokens.join('][');
+      field.value               = null;
+    }
+  }
+
+  // ensure the new row will display. needed to protect case the last row being
+  // copied was soft deleted and has display = 'hidden';
+  newRow.style.display = '';
+
+  // place new row behind the last row
+  parentElem.insertBefore(newRow, lastRow.nextSibling);
 }

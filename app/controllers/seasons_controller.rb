@@ -28,7 +28,6 @@ class SeasonsController < ApplicationController
   end
 
   def update
-    byebug
     if @season.update(season_params)
       redirect_to @season
     else
