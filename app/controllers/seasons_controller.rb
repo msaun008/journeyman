@@ -10,8 +10,8 @@ class SeasonsController < ApplicationController
   end
 
   def new
-    @season = Season.first
-    # 2.times{ @season.events.build }
+    @season = Season.new
+    2.times{ @season.events.build }
   end
 
   def create

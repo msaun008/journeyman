@@ -1,12 +1,15 @@
-<h1>Edit Season</h1>
+<div class="text-center">
+  <h1>Edit Season</h1>
+</div>
 
-<%= form_for(@season) do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<%= form_for @season, html: { class: "form-horizontal" } do |f| %>
+
+  <%= render "season_fields", f: f %>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.submit "Update" %>
-  </div>
 <% end %>

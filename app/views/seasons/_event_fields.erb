@@ -1,0 +1,25 @@
+<div class="form-group row fields">
+  <div class="col-md-3">
+    <%= f.text_field :start_date, class: "form-control datepicker", data: { provide:'datepicker' },
+      placeholder: "Start Date"%>
+  </div>
+
+  <div class="col-md-2">
+    <%= f.number_field :duration, class: "form-control", placeholder: "Duration" %>
+  </div>
+
+  <div class="col-md-3">
+    <%= f.text_field :location, class: "form-control", placeholder: "Location" %>
+  </div>
+
+  <div class="col-md-2">
+    <%= f.text_field :station, class: "form-control", placeholder: "Station" %>
+  </div>
+
+  <div class="col-md-1">
+    <%= link_to "remove", "javascript:void(0);", class: "remove_link",
+          onclick: "remove_fields(this)"%>
+  </div>
+
+  <%= f.hidden_field :_destroy, class: "hidden-destroy" %>
+</div>
