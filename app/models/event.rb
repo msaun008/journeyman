@@ -6,6 +6,7 @@ class Event < ApplicationRecord
 
   # associations
   belongs_to :season
+  has_many :forecasts
 
   enum state: [ :upcoming, :active, :completed ]
 

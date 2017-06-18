@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :seasons
   resources :events
+  resources :forecasts
 end

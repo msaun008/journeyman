@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612223613) do
+ActiveRecord::Schema.define(version: 20170618023158) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "start_date"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 20170612223613) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["season_id"], name: "index_events_on_season_id"
+  end
+
+  create_table "forecasts", force: :cascade do |t|
+    t.integer "high_temp"
+    t.integer "low_temp"
+    t.float "precipitation"
+    t.integer "wind"
+    t.float "score"
+    t.integer "event_id"
+    t.integer "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_forecasts_on_event_id"
+    t.index ["season_id"], name: "index_forecasts_on_season_id"
   end
 
   create_table "seasons", force: :cascade do |t|
