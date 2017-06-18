@@ -14,9 +14,38 @@
           <div class="col-md-3">
             <%= link_to(event, class: "undecorrated-link") do %>
               <div class="thumbnail">
-                <h4><%= event.station %></h4>
-                <p><i><%= event.location %></i></p>
-                <p><i><%= event.start_date.strftime("%B %d, %Y") %></i></p>
+                <h4 class="event-thumbnail-heading"><%= event.station %></h4>
+                <p>
+                  <i><%= event.location %></i>
+                </p>
+
+                <div class="row">
+                  <% if event.is_completed? %>
+                    <!-- TODO scope to user's forecast once user is introduced -->
+                    <div class="col-md-3">
+                      <p>
+                        Score:
+                      </p>
+                    </div>
+                    <div class="col-md-9">
+                      <p>
+                        <%= event.forecasts.first.score %>
+                      </p>
+                    </div>
+                  <% else %>
+                    <div class="col-md-3">
+                      <p>
+                        Due:
+                      </p>
+                    </div>
+                    <div class="col-md-9">
+                      <p>
+                        <%= event.start_date.strftime("%H:%M %Z - %m.%d.%Y") %><br>
+                        <span style="color: red;">( in 4 hours )</span>
+                      </p>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           </div>
