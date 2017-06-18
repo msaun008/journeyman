@@ -14,6 +14,25 @@ class Event < ApplicationRecord
   end
 
   def status
-    return 1
+    status = "Active"
+
+    if is_upcoming?
+      status = "Upcoming"
+    elsif is_completed?
+      status = "Completed"
+    end
+  end
+
+  def is_active?
+    today = DateTime.now
+    today > start_date && today < end_date
+  end
+
+  def is_completed?
+    DateTime.now > end_date
+  end
+
+  def is_upcoming?
+    DateTime.now < start_date
   end
 end
