@@ -70,17 +70,17 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <%= link_to "Current Station Observation", "http://w1.weather.gov/xml/current_obs/#{@event.station}.xml" %>
+          <%= link_to "Current Station Observation", "http://w1.weather.gov/xml/current_obs/#{@event.station}.xml", target: "_blank" %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <%= link_to "3-Day Historical Station Observations", "http://w1.weather.gov/data/obhistory/#{@event.station}.html" %>
+          <%= link_to "3-Day Historical Station Observations", "http://w1.weather.gov/data/obhistory/#{@event.station}.html", target: "_blank" %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <%= link_to "3-Day Station Observations Forecast", "http://www.nws.noaa.gov/cgi-bin/mos/getall.pl?sta=#{@event.station}" %>
+          <%= link_to "3-Day Station Observations Forecast", "http://www.nws.noaa.gov/cgi-bin/mos/getall.pl?sta=#{@event.station}", target: "_blank" %>
         </div>
       </div>
     </div>
