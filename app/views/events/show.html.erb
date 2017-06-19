@@ -1,1 +1,138 @@
-<%= @event.station %>
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= @event.season.name %> - <%= @event.station %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4">
+        <p><strong>My Status:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p>Submitted</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= button_to "Update My Forecast", "#", class: "btn btn-warning" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="row">
+      <div class="col-md-4">
+        <p><strong>Location:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p><%= @event.location %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p><strong>Station:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p><%= @event.station %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p><strong>Start Date:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p><%= @event.start_date %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p><strong>End Date:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p><%= @event.end_date %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <strong>Resources</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= link_to "Current Station Observation", "http://w1.weather.gov/xml/current_obs/#{@event.station}.xml" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= link_to "3-Day Historical Station Observations", "http://w1.weather.gov/data/obhistory/#{@event.station}.html" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= link_to "3-Day Station Observations Forecast", "http://www.nws.noaa.gov/cgi-bin/mos/getall.pl?sta=#{@event.station}" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <tr>
+        <th class="col-md-4">Measurement</th>
+        <th class="col-md-2">My Forecast</th>
+        <th class="col-md-2">Actual Observation</th>
+        <th class="col-md-2">Difference</th>
+        <th class="col-md-2">Score</th>
+      </tr>
+      <tr>
+        <td>High Temperature</td>
+        <td>90</td>
+        <td>89</td>
+        <td>-1</td>
+        <td>0.5</td>
+      </tr>
+      <tr>
+        <td>Low Temperature</td>
+        <td>90</td>
+        <td>89</td>
+        <td>-1</td>
+        <td>0.5</td>
+      </tr>
+      <tr>
+        <td>Precipitation</td>
+        <td>90</td>
+        <td>89</td>
+        <td>-1</td>
+        <td>0.5</td>
+      </tr>
+      <tr>
+        <td>Wind</td>
+        <td>90</td>
+        <td>89</td>
+        <td>-1</td>
+        <td>0.5</td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <strong><i>Total Points:</i></strong>
+        </td>
+        <td>
+          <strong><i>27.9</i></strong>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
