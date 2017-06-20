@@ -1,14 +1,16 @@
 class ForecastsController < ApplicationController
 
   def new
+    @event = Event.find(params[:event_id])
     @forecast = Forecast.new
   end
 
   def create
+    # TODO make season and event required, write specs to test this
+    @event = Event.find(params[:event_id])
     @forecast = Forecast.new(forecast_params)
-
-    @forecast.season = Season.first
-    @forecast.event = Event.first
+    @forecast.event = @event
+    @forecast.season = @event.season if @event
 
     if @forecast.save
       redirect_to root_path

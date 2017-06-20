@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root 'dashboard#home'
 
   resources :seasons
-  resources :events
+  resources :events do
+    resources :forecasts
+  end
+
+  # TODO Remove this eventually
   resources :forecasts
 end
