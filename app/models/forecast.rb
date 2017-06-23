@@ -7,4 +7,5 @@ class Forecast < ApplicationRecord
   # associations
   belongs_to :event
   belongs_to :season
+  belongs_to :user
 end
