@@ -1,5 +1,11 @@
 class DashboardController < ApplicationController
 
+  before_action :authenticate_user!, only: [:home]
+
+  def frontdoor
+
+  end
+
   def home
     @seasons = [Season.first]
   end

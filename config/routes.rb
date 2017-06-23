@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'dashboard#home'
+
+  root 'dashboard#frontdoor'
+  get '/dashboard', to: 'dashboard#home'
 
   resources :seasons
   resources :events do
@@ -8,6 +10,4 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # TODO Remove this eventually
-  resources :forecasts
 end

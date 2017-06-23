@@ -1,5 +1,6 @@
 class SeasonsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :find_season, only: [:show, :edit, :update, :destroy]
 
   def index
