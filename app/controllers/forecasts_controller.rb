@@ -43,7 +43,7 @@ class ForecastsController < ApplicationController
   end
 
   def update
-    if @season.update(season_params)
+    if @season.update(forecast_params)
       redirect_to @event
     else
       render 'edit'
