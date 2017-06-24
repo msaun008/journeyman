@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-    def authenticate_user!
+    def authenticate_user!(options={})
       if user_signed_in?
         super
       else
