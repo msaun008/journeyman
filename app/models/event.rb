@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   enum state: [ :upcoming, :active, :completed ]
 
   def end_date
-    start_date + duration.days
+    start_date + duration.days - 1.second
   end
 
   def status

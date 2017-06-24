@@ -4,7 +4,9 @@ class EventsController < ApplicationController
 
   def show
     @event        = Event.find(params[:id])
-    @forecast     = @event.forecasts.first
-    @has_forecast = @event
+    @forecast     = Forecast.find_by(event: @event, user: current_user)
+
+    # TODO replace placeholder for the actual observations.
+    @observation  = nil
   end
 end

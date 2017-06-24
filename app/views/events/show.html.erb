@@ -11,13 +11,19 @@
         <p><strong>My Status:</strong></p>
       </div>
       <div class="col-md-8">
-        <p>Submitted</p>
+        <p><%= @forecast ? "Submitted" : "Not Submitted" %></p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <%= button_to "Update My Forecast", new_event_forecast_path(@event), method: "get", class: "btn btn-warning" %>
+        <% if !@observation %>
+          <% if @forecast %>
+            <%= button_to "Update My Forecast", new_event_forecast_path(@event), method: "get", class: "btn btn-warning" %>
+          <% else %>
+            <%= button_to "Submit My Forecast", new_event_forecast_path(@event), method: "get", class: "btn btn-success" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -65,7 +71,7 @@
     <div class="well well-sm">
       <div class="row">
         <div class="col-md-12 text-center">
-          <strong>Resources</strong>
+          <p><strong>Resources</strong></p>
         </div>
       </div>
       <div class="row">
@@ -99,38 +105,38 @@
       </tr>
       <tr>
         <td>High Temperature</td>
-        <td>90</td>
-        <td>89</td>
-        <td>-1</td>
-        <td>0.5</td>
+        <td><%= @forecast ? @forecast.high_temp : "-" %></td>
+        <td><%= @observation ? "89" : "-" %></td>
+        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
         <td>Low Temperature</td>
-        <td>90</td>
-        <td>89</td>
-        <td>-1</td>
-        <td>0.5</td>
+        <td><%= @forecast ? @forecast.low_temp : "-" %></td>
+        <td><%= @observation ? "89" : "-" %></td>
+        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
         <td>Precipitation</td>
-        <td>90</td>
-        <td>89</td>
-        <td>-1</td>
-        <td>0.5</td>
+        <td><%= @forecast ? @forecast.precipitation : "-" %></td>
+        <td><%= @observation ? "89" : "-" %></td>
+        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
         <td>Wind</td>
-        <td>90</td>
-        <td>89</td>
-        <td>-1</td>
-        <td>0.5</td>
+        <td><%= @forecast ? @forecast.wind : "-" %></td>
+        <td><%= @observation ? "89" : "-" %></td>
+        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
         <td colspan="4">
           <strong><i>Total Points:</i></strong>
         </td>
         <td>
-          <strong><i>27.9</i></strong>
+          <strong><i><%= @observation ? "27.9" : "-" %></i></strong>
         </td>
       </tr>
     </table>
