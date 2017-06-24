@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623030635) do
+ActiveRecord::Schema.define(version: 20170623230433) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "start_date"
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 20170623030635) do
     t.index ["user_id"], name: "index_forecasts_on_user_id"
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_organizations_on_owner_id"
+  end
+
+  create_table "organizations_users", id: false, force: :cascade do |t|
+    t.integer "organization_id"
+    t.integer "user_id"
+    t.index ["organization_id"], name: "index_organizations_users_on_organization_id"
+    t.index ["user_id"], name: "index_organizations_users_on_user_id"
+  end
+
   create_table "seasons", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -58,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170623030635) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

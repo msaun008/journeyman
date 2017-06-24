@@ -18,6 +18,11 @@
     <div id="navbar" class="navbar-collapse collapse">
       <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
+          <% if(current_user && current_user.admin?) %>
+            <li class="dropdown">
+              <%= link_to "Admin Panel", "#", class: "text-danger" %>
+            </li>
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
