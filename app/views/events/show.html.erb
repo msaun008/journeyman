@@ -4,6 +4,24 @@
   </div>
 </div>
 
+<!-- TODO scope this block to the season owner / creator -->
+<% if current_user.admin? %>
+  <div class="row panel" style="margin: 30px 0px; padding: 10px 0px; border: 1px solid #a94442;">
+    <div class="col-md-12">
+      <div class="col-md-2">
+        <h5 class="text-danger">Admin Only</h5>
+      </div>
+      <div class="col-md-10">
+        <% if @event.is_completed? %>
+          <%= button_to "Enter Actual Forecast Observations", "#", class: "btn btn-success" %>
+        <% else %>
+          <%= button_to "Enter Actual Forecast Observations", "#", class: "btn btn-success", disabled: true %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="col-md-4">
     <div class="row">

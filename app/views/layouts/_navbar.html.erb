@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if(current_user && current_user.admin?) %>
             <li class="dropdown">
-              <%= link_to "Admin Panel", "#", class: "text-danger" %>
+              <%= link_to "Admin Panel", admin_panel_path, class: "text-danger" %>
             </li>
           <% end %>
           <li class="dropdown">

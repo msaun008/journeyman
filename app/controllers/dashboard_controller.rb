@@ -10,6 +10,10 @@ class DashboardController < ApplicationController
     @seasons = [Season.first]
   end
 
+  def admin_panel
+    verify_is_admin
+  end
+
   private
     def get_active_seasons
       # TODO Refine this algorithm as seasons evolve during development
