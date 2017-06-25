@@ -1,10 +1,5 @@
 <h1>Dashboard</h1>
 
-<%= link_to "Seasons", seasons_path %><br>
-<%= link_to "Login", new_user_session_path %><br>
-<%= link_to "Sign Up", new_user_registration_path %><br>
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-
 <% @seasons.each do |season| %>
   <div class="panel panel-default">
     <div class="panel-heading">

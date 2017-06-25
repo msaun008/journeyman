@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   # associations
   has_many :forecasts
+  has_many :seasons
   has_one :owned_organization, class_name: "Organization", foreign_key: "owner_id"
   has_and_belongs_to_many :organizations
 end

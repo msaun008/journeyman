@@ -3,12 +3,14 @@ users = User.create([
   { email: "user@gmail.com", password: "111111", password_confirmation: "111111" },
 ])
 
+admin_user = users[0]
+
 organizations = Organization.create([
-  { name: "Justice League" }
+  { name: "Justice League", owner: admin_user }
 ])
 
 seasons = Season.create([
-  { name: "Spring 2017" },
+  { name: "Spring 2017", owner: admin_user },
   # { name: "Summer 2017" },
   # { name: "Fall 2017" },
   # { name: "Winter 2017" },
@@ -22,8 +24,8 @@ events = Event.create([
 ])
 
 forecasts = Forecast.create([
-  { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 27.9, season: seasons[0], event: events[0], user: users[0] },
-  { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 0, season: seasons[0], event: events[1], user: users[0] },
-  { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 0, season: seasons[0], event: events[2], user: users[0] },
+  { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 27.9, season: seasons[0], event: events[0], user: admin_user },
+  { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 0, season: seasons[0], event: events[1], user: admin_user },
+  { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 0, season: seasons[0], event: events[2], user: admin_user },
   # { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 0, season: seasons[0], event: events[3] },
 ])

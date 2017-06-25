@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
 
   before_action :authenticate_user!, only: [:home]
+  before_action :authenticate_admin_user!, only: [:admin_panel]
 
   def frontdoor
 
@@ -11,7 +12,6 @@ class DashboardController < ApplicationController
   end
 
   def admin_panel
-    verify_is_admin
   end
 
   private

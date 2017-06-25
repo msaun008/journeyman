@@ -6,6 +6,7 @@ class Season < ApplicationRecord
   # associations
   has_many :events
   has_many :forecasts
+  belongs_to :owner, class_name: "User"
 
-  accepts_nested_attributes_for :events, allow_destroy: true
+  accepts_nested_attributes_for :events, reject_if: :all_blank, allow_destroy: true
 end

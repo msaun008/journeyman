@@ -1,6 +1,6 @@
 class SeasonsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_admin_user!
   before_action :find_season, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -17,6 +17,7 @@ class SeasonsController < ApplicationController
 
   def create
     @season = Season.new(season_params)
+    @season.owner = current_user
 
     if @season.save
       redirect_to @season

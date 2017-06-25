@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
       dashboard_path
     end
 
-    def verify_is_admin
-      if !current_user.admin?
+    def authenticate_admin_user!(options={})
+      if !(authenticate_user!(options) && current_user.admin?)
         redirect_to dashboard_path, alert: "1003 - Must be admin to access this page."
       end
     end
