@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   belongs_to :season
   has_many :forecasts
   has_one :event_record
+  has_one :observed_forecast, class_name: "Forecast", through: :event_record
 
   def end_date
     start_date + duration.days - 1.second
