@@ -50,6 +50,20 @@ class ForecastsController < ApplicationController
     end
   end
 
+  def edit_actual
+    @event = Event.find(params[:event_id])
+    validate_event_exists(@event)
+
+    byebug
+
+    @forecast = @event.actual_forecast || Forecast.new
+
+  end
+
+  def update_actual
+
+  end
+
   private
     def forecast_params
       params.require(:forecast).permit(:high_temp, :low_temp, :precipitation, :wind)

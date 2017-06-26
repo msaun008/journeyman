@@ -7,8 +7,7 @@ class Event < ApplicationRecord
   # associations
   belongs_to :season
   has_many :forecasts
-
-  enum state: [ :upcoming, :active, :completed ]
+  has_one :event_record
 
   def end_date
     start_date + duration.days - 1.second
