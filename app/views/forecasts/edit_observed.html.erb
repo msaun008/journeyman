@@ -1,0 +1,14 @@
+<div class="text-center">
+  <h1>Edit Observed Forecast</h1>
+</div>
+
+<%= form_for [@event, @forecast], url: event_forecasts_observed_path(@event), method: "patch", html: { class: "form-horizontal" } do |f| %>
+  <%= render 'forecast_fields', f: f %>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<% end %>

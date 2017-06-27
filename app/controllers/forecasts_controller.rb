@@ -43,25 +43,33 @@ class ForecastsController < ApplicationController
   end
 
   def update
-    if @season.update(forecast_params)
+    @event = Event.find(params[:event_id])
+    @forecast = Forecast.find(params[:id])
+
+    if @forecast.update(forecast_params)
       redirect_to @event
     else
       render 'edit'
     end
   end
 
-  def edit_actual
+  def edit_observed
     @event = Event.find(params[:event_id])
     validate_event_exists(@event)
-
-    byebug
-
-    @forecast = @event.actual_forecast || Forecast.new
-
+    @forecast = @event.observed_forecast || Forecast.new
   end
 
-  def update_actual
+  def update_observed
+    @event = Event.find(params[:event_id])
+    validate_event_exists(@event)
+    @forecast = @event.observed_forecast || Forecast.new
+    @forecast.attributes = forecast_params
 
+    if @forecast.save
+      redirect_to @event
+    else
+      render 'edit_observed'
+    end
   end
 
   private

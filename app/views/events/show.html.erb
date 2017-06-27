@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-10">
         <% if @event.is_completed? %>
-          <%= button_to "Enter Actual Forecast Observations", event_forecasts_actual_edit_path(@event), method: :get, class: "btn btn-success" %>
+          <%= button_to "Enter Actual Forecast Observations", event_forecasts_observed_edit_path(@event), method: :get, class: "btn btn-success" %>
         <% else %>
           <%= button_to "Enter Actual Forecast Observations", "#", class: "btn btn-success", disabled: true %>
         <% end %>

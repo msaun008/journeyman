@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   resources :seasons
   resources :events do
-    get   'forecasts/actual/edit', to: 'forecasts#edit_actual'
-    patch  'forecasts/actual', to: 'forecasts#update_actual'
+    get   'forecasts/observed/edit', to: 'forecasts#edit_observed'
+    patch  'forecasts/observed', to: 'forecasts#update_observed'
     resources :forecasts
   end
 
