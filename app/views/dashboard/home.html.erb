@@ -17,20 +17,34 @@
                   <i><%= event.location %></i>
                 </p>
 
-                <div class="row">
-                  <% if event.is_completed? %>
-                    <!-- TODO scope to user's forecast once user is introduced -->
-                    <div class="col-md-3">
+                <% if event.is_completed? %>
+                  <!-- TODO scope to user's forecast once user is introduced -->
+                  <div class="row">
+                    <div class="col-md-4">
                       <p>
                         Score:
                       </p>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                       <p>
                         <%= event.forecasts.first.score %>
                       </p>
                     </div>
-                  <% else %>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <p>
+                        Position:
+                      </p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        4 / 28
+                      </p>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="row">
                     <div class="col-md-3">
                       <p>
                         Due:
@@ -42,8 +56,9 @@
                         <span style="color: red;">( in 4 hours )</span>
                       </p>
                     </div>
-                  <% end %>
-                </div>
+                  </div>
+                <% end %>
+
               </div>
             <% end %>
           </div>
