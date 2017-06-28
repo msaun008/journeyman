@@ -7,6 +7,6 @@ class EventsController < ApplicationController
     @forecast     = Forecast.find_by(event: @event, user: current_user)
 
     # TODO replace placeholder for the actual observations.
-    @observation  = nil
+    @observation  = @event.observed_forecast
   end
 end

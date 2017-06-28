@@ -124,29 +124,29 @@
       <tr>
         <td>High Temperature</td>
         <td><%= @forecast ? @forecast.high_temp : "-" %></td>
-        <td><%= @observation ? "89" : "-" %></td>
-        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? @observation.high_temp : "-" %></td>
+        <td><%= @observation ? @forecast.high_temp - @observation.high_temp : "-" %></td>
         <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
         <td>Low Temperature</td>
         <td><%= @forecast ? @forecast.low_temp : "-" %></td>
-        <td><%= @observation ? "89" : "-" %></td>
-        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? @observation.low_temp : "-" %></td>
+        <td><%= @observation ? @forecast.low_temp - @observation.low_temp : "-" %></td>
         <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
         <td>Precipitation</td>
         <td><%= @forecast ? @forecast.precipitation : "-" %></td>
-        <td><%= @observation ? "89" : "-" %></td>
-        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? @observation.precipitation : "-" %></td>
+        <td><%= @observation ? @forecast.precipitation - @observation.precipitation : "-" %></td>
         <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
         <td>Wind</td>
         <td><%= @forecast ? @forecast.wind : "-" %></td>
-        <td><%= @observation ? "89" : "-" %></td>
-        <td><%= @observation ? "-1" : "-" %></td>
+        <td><%= @observation ? @observation.wind : "-" %></td>
+        <td><%= @observation ? @forecast.wind - @observation.wind : "-" %></td>
         <td><%= @observation ? "0.5" : "-" %></td>
       </tr>
       <tr>
