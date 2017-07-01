@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170625180051) do
   create_table "forecasts", force: :cascade do |t|
     t.integer "high_temp"
     t.integer "low_temp"
-    t.float "precipitation"
+    t.decimal "precipitation"
     t.integer "wind"
     t.float "score"
     t.integer "event_id"

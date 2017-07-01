@@ -35,13 +35,13 @@ events.each do |e|
 end
 
 forecasts = Forecast.create([
-  { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 27.9, season: seasons[0], event: events[0], user: admin_user },
+  { high_temp: 90, low_temp: 70, precipitation: 0.0, wind: 12, score: 0, season: seasons[0], event: events[0], user: admin_user },
   { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 0, season: seasons[0], event: events[1], user: admin_user },
   { high_temp: 90, low_temp: 70, precipitation: 0.25, wind: 12, score: 0, season: seasons[0], event: events[2], user: admin_user },
 ])
 
 observed_forecasts = Forecast.create([
-  { high_temp: 99, low_temp: 99, precipitation: 0.99, wind: 99, score: 0, season: seasons[0], event: events[0] },
+  { high_temp: 91, low_temp: 72, precipitation: 0.9, wind: 12, score: 0, season: seasons[0], event: events[0] },
 ])
 
 er0 = event_records[0]
